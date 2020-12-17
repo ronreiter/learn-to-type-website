@@ -15,7 +15,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>Type Tap</title>
-        <link rel="shortcut icon" href="../images/fav_icon.png" type="image/x-icon">
+        <link rel="shortcut icon" href="images/fav_icon.png" type="image/x-icon">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
         <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
         <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -74,10 +74,10 @@
 
                             <div class="columns">
                                 <div class="column is-6">
-                                    <a href="https://apps.apple.com/us/app/type-tap/id1533730810"><img src="images/badge-download-on-the-app-store.svg" style="height: 50px; display: block; margin: 0 auto"></a>
+                                    <a href="https://apps.apple.com/us/app/type-tap/id1533730810" target="_blank"><img src="images/badge-download-on-the-app-store.svg" style="height: 50px; display: block; margin: 0 auto"></a>
                                 </div>
                                 <div class="column is-6">
-                                    <a href="https://play.google.com/store/apps/details?id=com.learnto.he"><img src="images/google-play-badge.png" style="height: 50px; display: block; margin: 0 auto"></a>
+                                    <a href="https://play.google.com/store/apps/details?id=com.learnto.he" target="_blank"><img src="images/google-play-badge.png" style="height: 50px; display: block; margin: 0 auto"></a>
                                 </div>
                             </div>
 
@@ -187,10 +187,10 @@
                 <img src="images/taptap-app-icon.png" style="display: block; height: 128px; margin: 0 auto; margin-bottom: 50px">
                 <div class="columns">
                     <div class="column is-3 is-offset-3">
-                        <a href="https://apps.apple.com/us/app/type-tap/id1533730810"><img src="images/badge-download-on-the-app-store.svg" style="height: 50px; display: block; margin: 0 auto"></a>
+                        <a href="https://apps.apple.com/us/app/type-tap/id1533730810" target="_blank"><img src="images/badge-download-on-the-app-store.svg" style="height: 50px; display: block; margin: 0 auto"></a>
                     </div>
                     <div class="column is-3">
-                        <a href="https://play.google.com/store/apps/details?id=com.learnto.he"><img src="images/google-play-badge.png" style="height: 50px; display: block; margin: 0 auto"></a>
+                        <a href="https://play.google.com/store/apps/details?id=com.learnto.he" target="_blank"><img src="images/google-play-badge.png" style="height: 50px; display: block; margin: 0 auto"></a>
                     </div>
                 </div>
 
@@ -215,5 +215,23 @@
             </div>
             <script src="images/../js/bulma.js"></script>
         </footer>
+
+    <script>
+        var getOutboundLink = function(url) {
+          gtag('event', 'click', {
+            'event_category': 'outbound',
+            'event_label': url,
+            'transport_type': 'beacon',
+            // 'event_callback': function(){document.location = url;}
+          });
+        }
+        document.querySelectorAll("a").forEach((link) => {
+            link.addEventListener("click", () => {
+
+                console.log('send click', link.href)
+                getOutboundLink(link.href)
+            })
+        })
+    </script>
     </body>
 </html>
